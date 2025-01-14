@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Listado de Reservas Veterinarias</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="../static/css/listar.css">
+    <link rel="icon" href="../static/img/veterinario.ico">
+
+
+    
+</head>
+
+<body>
+    <h1>Listado de Reservas Veterinarias</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <form method="GET" action="{% url 'listar_reservas' %}" class="form-inline search-form">
+                        <input type="text" name="q" value="" class="form-control" placeholder="Buscar por cliente...">
+                        <button type="submit" class="btn btn-primary">Buscar</button>
+                    </form>
+                    <table id="mytable" class="table table-bordred table-striped">
+                        <thead>
+                            <tr>
+                                <th>Cliente</th>
+                                <th>Correo de Contacto</th>
+                                <th>Mascota</th>
+                                <th>Tipo de Animal</th>
+                                <th>Fecha de Nacimiento</th>
+                                <th>Tipo de Sexo</th>
+                                <th>Fecha de Consulta</th>
+                                <th>Hora de Consulta</th>
+                                <th>Motivo de Consulta</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for reserva in reservas %}
+                            <tr>
+                                <td>{{ reserva.cliente }}</td>
+                                <td>{{ reserva.correo_contacto }}</td>
+                                <td>{{ reserva.mascota }}</td>
+                                <td>{{ reserva.tipo_animal }}</td>
+                                <td>{{ reserva.fecha_nacimiento }}</td>
+                                <td>{{ reserva.tipo_sexo }}</td>
+                                <td>{{ reserva.fecha_consulta|date:"d-m-Y" }}</td>
+                                <td>{{ reserva.get_hora_display }}</td>
+                                <td>{{ reserva.motivo_consulta }}</td>
+                                <td class="opciones-container">
+                                    <a href="{% url 'modificar_reserva' reserva.id %}" title="Modificar Reserva"><img
+                                            src="../static/img/modificar.png" width="25" height="25"></a>
+
+                                    <a href="{% url 'correo' reserva_id=reserva.id %}" title="Enviar Correo"><img
+                                            src="../static/img/enviar-correo.png" width="25" height="25"></a>
+
+                                    <a href="{% url 'eliminar_reserva' reserva.id %}" title="Eliminar Reserva"><img
+                                            src="../static/img/eliminar.png" width="25" height="25"></a>
+
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <a href="{% url 'listar_reservas' %}" class="boton">Lista completa</a>
+                <a href="{% url 'index' %}" class="boton">Volver a Inicio</a>
+            </div>
+        </div>
+    </div>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {% if messages %}
+    {% for m in messages %}
+    <script>
+        Swal.fire({
+            "title": "Felicitaciones",
+            "text": "{{ m }}",
+            "icon": "success"
+        })
+    </script>
+    {% endfor %}
+    {% endif %}
+</body>
+
+</html>

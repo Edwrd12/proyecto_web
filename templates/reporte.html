@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reporte de Reservas</title>
+    <link rel="stylesheet" href="/static/css/reporte.css">
+    <link rel="icon" href="../static/img/veterinario.ico">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h1>Reporte de Reservas por Mes y Día</h1>
+
+                <h2>Días con Reservas</h2>
+                <table class="table table-dark table-sm">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Día</th>
+                            <th>Semana</th>
+                            <th>Mes</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for mes_reservas in reservas_por_mes %}
+                        {% for reserva in mes_reservas.reservas %}
+                        <tr>
+                            <td>{{ reserva.dia }}</td>
+                            <td>{{ reserva.semana }}</td>
+                            <td>{{ mes_reservas.mes }}</td>
+                            <td>{{ reserva.total }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <h2>Meses con más Reservas</h2>
+                <table class="table table-bordered table-striped">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Mes</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for mes_reservas in reservas_por_mes %}
+                        <tr>
+                            <td>{{ mes_reservas.mes }}</td>
+                            <td>{{ mes_reservas.total }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+
+
+
+
+                <a href="{% url 'index' %}" class="btn btn-primary">Volver a Inicio</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

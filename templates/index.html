@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinaria VetClean</title>
+    <link rel="stylesheet" href="../static/css/estilo.css">
+    <link rel="icon" href="../static/img/veterinario.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+    <!--Cabecera y barra de navegación-->
+    <header class="header" id="inicio">
+        <img class="hamburguer" src=" static/img/hamburguesa.svg" alt="">
+        <nav class="menu-navegacion">
+            {% if user.is_authenticated%}
+                <a href="{% url 'cerrar_sesion' %}">Cerrar Sesion</a>
+                <a href="#">Bienvenide: {{user.username}}</a>
+                {%  if perms.core.add_reservaveterinaria or user.socialaccount_set.exists %}
+                    <a href="{% url 'reservar' %}">Reserva tu  hora </a>
+                    <a href="{% url 'listar_cliente' %}">Visualiza tu reserva </a>
+                {% endif %}
+                {%  if perms.core.view_reservaveterinaria %}
+                    <a href="{% url 'listar_reservas' %}">Listado de Reservas </a>
+                    <a href="{% url 'reporte_reservas_por_mes' %}"> Informe de reservas </a>
+                {% endif %}
+            {% else %}
+                <a href="{% url 'custom_login' %}">Iniciar sesión</a>
+                <a href="{% url 'registro' %}">Registrate y reserva tu hora</a>
+            {% endif %}
+                <a href="#inicio">Inicio</a>
+                <a href="#servicio">Quiénes Somos</a>
+                <a href="#clinica">Nuestra Clínica</a>
+                <a href="#equipo">Nuestra Equipo</a>
+                <a href="#carrusell">Nuestros Servicios</a>
+                <a href="#galeria">Nuestros Clientes  </a>
+                <a href="#preguntas">Preguntas Frecuentes</a>
+                <a href="#footer">Contacto</a>
+        </nav>
+        <div class="contenedor head">
+            <h1 class="titulo">VETCLEAN</h1>
+            <h1 class="titulo">Clinica Veterinaria </h1>
+            <p class="copy">Al servicio de nuestras mascotas</p>
+        </div>
+    </header>
+
+    <!--Cuerpo principal-->
+    <main>
+        <section class="services contenedor" id="servicio">
+            <h2 class="subtitulo">Quiénes Somos</h2>
+            <div class="contenedor-servicio">
+                <img src="static/img/vet.jpg" alt="">
+                <div class="checklist-servicio">
+                    <div class="service">
+                        <h3 class="n-service"><span class="number">*</span>Fundación</h3>
+                        <p> Los fundadores y directores técnicos de VETCLEAN son, el Dr. Daniel Bravo, Dr. Eduardo
+                            Zamora, Dr. Miguel Campusano, Dr. Ignacio González
+                            profesionales egresados del Instituto DUOC UC, con más de 20 años de experiencia en clínica
+                            de pequeños animales.</p>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- 360-->
+        <div class="img-box" id="clinica">
+            <h2 class="subtitulo">Nuestra Clínica</h2>
+            <iframe width="63.5%" height="600" allowfullscreen frameborder="0"
+                src="https://momento360.com/e/u/96e5b863dad94f5a94dacf82a296d892?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=71&size=medium&display-plan=true"
+                style="margin:2em auto; display: block; box-shadow: 4px 4px 10px #CCC"></iframe>
+        </div>
+
+
+        <!-- Equipo Veterinario-->
+        <div id="equipo">
+            <h2 class="subtitulo">Nuestro Equipo</h2>
+
+            <div class="contenedor-galeria">
+
+                <div class="contenedor-servicio">
+                    <img src="static/img/vet1.jpg" alt="">
+                    <div class="checklist-servicio">
+                        <div class="service">
+                            <h3 class="n-service"><span class="number">*</span>Brad Pitt</h3>
+                            <h5 class="n-service" >Especialista en Medicina Interna - Anestesista</h5>
+                            <p> Médico Veterinario titulado de la Universidad Mayor</p>
+                            <p> Diplomado en medicina de animales pequeños, Universidad de Chile</p>
+                            <p> Diplomado en pequeños animales, Universidad de Concepción</p>
+                            <p> Docente de pre-grado Universidad Viña del Mar</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contenedor-servicio">
+                    <img src="static/img/vet2.jpg" height="85%" alt="">
+                    <div class="checklist-servicio">
+                        <div class="service">
+                            <h3 class="n-service"><span class="number">*</span>Angelina Jolie</h3>
+                            <h5 class="n-service">Especialista en Medicina Interna perros y gatos - Cirujana</h5>
+                            <p> Médico Veterinario titulado de la Universidad de Chile</p>
+                            <p> Curso de cirugía laparoscópica nivel avanzado, Universidad Católica</p>
+                            <p> Curso de traumatología y ortopedia en pequeños animales, Universidad de Concepción</p>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!--Carrusel-->
+        <section class="contenedor carousel-slide" id="carrusell">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <h2 class="subtitulo">Nuestros Servicios</h2>
+                <ol class="carousel-indicators">
+                    <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
+                    <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+                    <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+                    <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"></li>
+                    <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="static/img/pelu1.jpg" width="1200" height="700" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Peluqueria</h5>
+                            <p>Los mejores estilistas para tus regalones </p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../static/img/examen1.jpeg" width="1200" height="700" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Exámenes de rutina</h5>
+                            <p>Trabajamos con la mejor tecnologia para poder chequear a tu mascota.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="static/img/vacuna_2.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>VACUNACIÓN</h5>
+                            <p>Todas las vacunas que tu mascota necesite para que tenga una mejor salud.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="static/img/cirugia_2.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>CIRUGÍAS</h5>
+                            <p>Si tu mascota necesita cirugia contamos con los mejores expertos.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="static/img/camioneta_2.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>DOMICILIO</h5>
+                            <p>Si vives en zonas rurales o muy alejados, no te preoucupes, nosotros te
+                                visitaremos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Galería-->
+        <section class="gallery" id="galeria">
+            <div class="contenedor">
+                <h2 class="subtitulo">Nuestros Clientes </h2>
+                <div class="contenedor-galeria">
+                    <img src="static/img/dueño1.jpeg" class="img-galeria" alt="">
+                    <img src="static/img/dueño2.jpeg" class="img-galeria" alt="">
+                    <img src="static/img/dueño3.jpeg" class="img-galeria" alt="">
+                    <img src="static/img/dueño4.jpg" class="img-galeria" alt="">
+                    <img src="static/img/dueno5.jpg" class="img-galeria" alt="">
+                    <img src="static/img/dueño6.jpeg" class="img-galeria" alt="">
+                </div>
+            </div>
+        </section>
+        <div class="imagen-light">
+            <img src="static/img/close.svg" alt="" class="close">
+            <img src="" alt="" class="agregar-imagen">
+        </div>
+
+
+        <!--preguntas-->
+        <div class="contenedor-acordeon" id="preguntas">
+            <h2 class="subtitulo">Preguntas frecuentes</h2>
+            <div class="acordeon">
+                <input type="radio" name="acordeon" id="btn-acordeon1" class="btn-acordeon">
+                <label for="btn-acordeon1">
+                    ¿A partir de qué edad mi gato es adulto?
+                </label>
+                <div class="contenido-acordeon">
+                    <p>Los gatos se consideran adultos desde los 12 meses (1año) en adelante hasta los 7 años,
+                        después
+                        de esta edad comienzan a ser mascotas geriátricas.</p>
+                </div>
+            </div>
+            <div class="acordeon">
+                <input type="radio" name="acordeon" id="btn-acordeon2" class="btn-acordeon">
+                <label for="btn-acordeon2">
+                    ¿A partir de qué edad mi perro es senior?
+                </label>
+                <div class="contenido-acordeon">
+                    <p>Los perritos son adultos dependiendo del tamaño de este. Habitualmente las razas pequeñas
+                        hasta
+                        el año son cachorros y después de los 7 años comienzan a ser pacientes seniles. En el
+                        caso de
+                        las mascotas de raza mediana que es a partir de los 12kilos en adelante tienen el mismo
+                        tipo de
+                        edad, pero no así los tamaños gigantes que es a partir de los 30 kilos en adelante,
+                        estos
+                        comienzan a ser seniles a los 5 años de vida.</p>
+                </div>
+            </div>
+            <div class="acordeon">
+                <input type="radio" name="acordeon" id="btn-acordeon3" class="btn-acordeon">
+                <label for="btn-acordeon3">
+                    ¿Por qué mi cachorro muerde todo?
+                </label>
+                <div class="contenido-acordeon">
+                    <p>Los cachorros cambian dientes hasta los 6 meses de vida, por lo que necesita tener
+                        juguetes para
+                        morder constantemente y distintos tipos para que tenga variedad y no aburra siempre del
+                        mismo.
+                    </p>
+                </div>
+            </div>
+            <div class="acordeon">
+                <input type="radio" name="acordeon" id="btn-acordeon4" class="btn-acordeon">
+                <label for="btn-acordeon4">
+                    ¿Qué pasa si no comencé el plan de vacunación de mi gatito o perrito en los meses que
+                    corresponden?
+                </label>
+                <div class="contenido-acordeon">
+                    <p>Debe comenzar a la brevedad posible, pero siempre después de 7 días de adquirida su
+                        mascota, ya
+                        que dentro de este periodo podremos saber clínicamente si presenta algún cuadro
+                        virulento
+                        adquirido previamente.</p>
+                </div>
+            </div>
+            <div class="acordeon">
+                <input type="radio" name="acordeon" id="btn-acordeon5" class="btn-acordeon">
+                <label for="btn-acordeon5">
+                    ¿Puedo bañar a mi cachorro?
+                </label>
+                <div class="contenido-acordeon">
+                    <p>Lo ideal es que tenga todas sus octuples o sextuples al dia, de lo contrario, debe tener
+                        la
+                        precaución de mantener una temperatura estable, antes, durante y después del baño, a
+                        demás de
+                        asegurarse de que quede bien seco.</p>
+                </div>
+            </div>
+        </div>
+
+            <div> 
+                <br> <br>
+            </div>
+
+    </main>
+    <br>
+    <!--Informaciones y contactos-->
+    <footer id="footer">
+        <div class="contenedor footer-content">
+            <div class="contact-us">
+                <h1>Contactos</h1>
+                <h2 class="brand">© Dr. Daniel Bravo | Dr. Eduardo Zamora | Dr. Miguel Campusano | Dr. Ignacio González
+                </h2>
+                <p>Direccion: <a href="https://www.google.cl/maps/place/Duoc+UC:+Sede+Vi%C3%B1a+Del+Mar/@-33.0336847,-71.535759,17z/data=!3m1!4b1!4m6!3m5!1s0x9689de64d74fd4af:0x8004f381e9055a38!8m2!3d-33.0336892!4d-71.5331841!16s%2Fg%2F1v420nzr?entry=ttu" target="_blank" class="links_ref">Av. Alvarez 386 | Viña del Mar</a> </a> </p>
+                <p>Fono: <a href="https://web.whatsapp.com/" target="_blank" class="links_ref">+5691234578</a></p>
+                <p>E-Mail: <a href="https://mail.google.com/" target="_blank" class="links_ref"> vetclean@gmail.com</a></p>
+                
+
+            </div>
+
+            <div class="social-media">
+                <span>
+                    <a href="https://www.youtube.com/watch?v=7OgDOiWKPy4" target="_blank" class="social-media-icon">
+                        <i class='bx bxl-youtube'></i>
+                    </a>
+                    <a href="https://es-la.facebook.com/ColegioMedicoVeterinarioDeChileAg/" target="_blank"
+                        class="social-media-icon">
+                        <i class='bx bxl-facebook'></i>
+                    </a>
+                    <a href="https://www.instagram.com/hcvceu/?hl=es-la" target="_blank" class="social-media-icon">
+                        <i class='bx bxl-instagram'></i>
+                    </a>
+                    <a href="https://twitter.com/colmevetchile?lang=es" target="_blank" class="social-media-icon">
+                        <i class='bx bxl-twitter'></i>
+                    </a>
+                    
+                   
+                </span>
+            </div>
+        </div>
+        <div class="line"></div>
+    </footer>
+    <script src="../static/js/menu.js"></script>
+    <script src="static/js/lightbox.js"></script>
+    <script src="static/js/valida.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {%  if messages %}
+          {% for  m in messages %}
+          <script>
+            Swal.fire({
+                "tittle": "Felicitaciones",
+                "text": "{{m}}",
+                "icon": "success"
+            })
+          </script>
+           {{m}}
+        {% endfor %}
+    {% endif %}   
+</body>
+
+</html>

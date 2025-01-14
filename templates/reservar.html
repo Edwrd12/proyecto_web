@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Reserva</title>
+    <link rel="stylesheet" href="/static/css/reservar.css">
+    <link rel="icon" href="../static/img/veterinario.ico">
+</head>
+
+<body>
+    
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12 col-md-9 offset-md-2">
+                    <form class="form" action="" method="post">
+                        {% csrf_token %}
+                        {{ form }}
+                        <div class="d-flex justify-content-center">
+                            <input type="reset" value="Limpiar" class="btn btn-primary">
+                            <input type="submit" value="Reservar" class="btn btn-primary">
+                            <a href="{% url 'index' %}" class="mi-enlace">Volver</a>
+                        </div>
+                    </form>
+                    {{mensaje}}
+                    {% if messages %}
+                    {% for m in messages %}
+                    <script>
+                        Swal.fire({
+                            title: "Felicitaciones",
+                            text: "{{m}}",
+                            icon: "success"
+                        });
+                    </script>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

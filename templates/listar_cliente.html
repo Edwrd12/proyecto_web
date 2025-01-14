@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listado de Reservas Veterinarias</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="../static/css/listar_cliente.css">
+    <link rel="icon" href="../static/img/veterinario.ico">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1> Listado del Cliente</h1>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Cliente</th>
+                                <th>Correo de Contacto</th>
+                                <th>Mascota</th>
+                                <th>Tipo de Animal</th>
+                                <th>Fecha de Nacimiento</th>
+                                <th>Tipo de Sexo</th>
+                                <th>Fecha y Hora de Consulta</th>
+                                <th>Motivo de Consulta</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for reserva in reservas %}
+                            <tr>
+                                <td>{{ reserva.cliente }}</td>
+                                <td>{{ reserva.correo_contacto }}</td>
+                                <td>{{ reserva.mascota }}</td>
+                                <td>{{ reserva.tipo_animal }}</td>
+                                <td>{{ reserva.fecha_nacimiento }}</td>
+                                <td>{{ reserva.tipo_sexo }}</td>
+                                <td>{{ reserva.fecha_consulta|date:'d-m-Y' }} {{ reserva.get_hora_display }}</td>
+                                <td>{{ reserva.motivo_consulta }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <a href="{% url 'index' %}" class="boton">Volver a Inicio</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
