@@ -1,0 +1,87 @@
+/* reporte.css */
+
+body {
+    background: linear-gradient(to top, rgba(55, 140, 146, 1) 0%, rgba(55, 55, 22, 0.171) 85%), url(../img/gatitos.jpg) no-repeat center top;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 100vh; /* Cambiado a min-height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0; /* Añadido */
+    padding: 0; /* Añadido */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+    
+
+.container {
+    margin-top: 30px;
+}
+
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0px 2px 10px rgb(0, 0, 0);
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: rgba(55, 140, 146);;
+    font-weight: bold;
+    
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Estilos de botón */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos específicos de las tablas */
+.table {
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.table thead th {
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.table tbody td {
+    font-size: 14px;
+    color: #555;
+}
+

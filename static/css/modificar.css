@@ -1,0 +1,125 @@
+body {
+  margin: 0;
+  background: linear-gradient(to top, rgba(55, 140, 146) 0%, hsla(55, 55%, 22%, 0.171) 85%), url(../img/gatitos.jpg) no-repeat center top;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position-x: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+
+/* Estilos generales */
+.card {
+  background-color: #e5fdf4d7;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  max-width: 320px;
+  width: 100%;
+}
+
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+form {
+  margin-bottom: 0;
+}
+
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 92%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  margin-right: 10px;
+  background-color: #f44336;
+  color: #fff;
+}
+
+.btn-reserve {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+select {
+  background-color: #f2f2f2;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 33%;
+}
+
+select:hover {
+  cursor: pointer;
+}
+
+/* BOTON VOLVER */
+.mi-enlace {
+  color: #000;
+  /* Color del texto */
+  text-decoration: none;
+  /* Sin decoración de texto */
+  padding: 5px 10px;
+  /* Espaciado interno */
+  background-color: #eee;
+  /* Color de fondo */
+  border-radius: 4px;
+  /* Radio de borde para dar forma redondeada */
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.mi-enlace:hover {
+  opacity: 0.8;
+  /* Color de fondo al pasar el ratón */
+}

@@ -1,0 +1,174 @@
+body {
+  margin: 0;
+  background: linear-gradient(to top, rgba(55, 140, 146) 0%, hsla(55, 55%, 22%, 0.171) 85%), url(../img/gatitos.jpg) no-repeat center top;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position-x: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+
+/* Estilos generales */
+.card {
+  background-color: #bff7eed7;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  max-width: 500px;
+  width: 100%;
+}
+
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+form {
+  margin-bottom: 0;
+}
+
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 95%;
+  padding: 2%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px ;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: #ffffff;
+}
+.btn:hover {
+  opacity: 0.8;
+}
+
+.mi-enlace {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #080808a7;
+  padding: 11px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.mi-enlace:hover {
+  opacity: 0.8;
+}
+
+select {
+  background-color: #f2f2f2;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 33%;
+}
+
+select:hover {
+  cursor: pointer;
+}
+
+
+#id_correo_contacto {
+  width: 95%;
+  padding: 2%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#id_fecha_nacimiento_day {
+  width: 25%;
+  padding: 2%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 15px;
+}
+#id_fecha_nacimiento_month {
+  width: 25%;
+  padding: 2%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+#id_fecha_nacimiento_year {
+  width: 25%;
+  padding: 2%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+#id_tipo_sexo {
+  width: 25%;
+  padding: 2%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+#id_fecha_consulta {
+  width: 30%;
+  padding: 2%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 15px; /* Ajusta el tamaño de la letra a 20 píxeles */
+}
+
+#id_hora.radio-list {
+  display: grid; /* Utilizamos grid para crear una cuadrícula */
+  grid-template-columns: repeat(3, 1fr); /* Definimos 3 columnas con ancho flexible */
+  grid-gap: 10px; /* Espacio entre las celdas */
+}
+
+#id_hora.radio-list label {
+  display: flex; /* Alineamos el contenido de las etiquetas en línea */
+  align-items: center; /* Centramos verticalmente el contenido de las etiquetas */
+  padding: 10px; /* Añadimos un espacio de relleno */
+  background-color: #f2f2f2; /* Cambiamos el color de fondo */
+  border: 1px solid #ccc; /* Agregamos un borde */
+}
+
+#id_motivo_consulta{
+  width: 95%;
+  padding: 2%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
